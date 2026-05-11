@@ -7,7 +7,40 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-        /* Styles spécifiques pour les avis - Look Premium */
+        /* --- CORRECTIFS CRITIQUES MOBILE --- */
+        html, body {
+            overflow-x: hidden; /* Empêche le bug du scroll horizontal */
+            overflow-y: auto;   /* Force l'activation du scroll vertical */
+            height: auto;       /* Permet à la page de s'étirer selon le contenu */
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-wrapper {
+            padding-top: 120px; /* Espace pour la navbar (ajusté pour PC) */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .main-wrapper {
+                padding-top: 100px; /* Espace pour la navbar sur mobile */
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            h1 {
+                font-size: 2.2rem !important; /* Réduction du titre pour mobile */
+                line-height: 1.1;
+            }
+            h1 span {
+                font-size: 1.8rem !important;
+            }
+        }
+
+        /* --- STYLES DES AVIS (EXISTANTS) --- */
         .reviews-container {
             display: flex;
             gap: 20px;
@@ -16,6 +49,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            width: 100%;
         }
 
         .reviews-grid {
@@ -76,7 +110,6 @@
             letter-spacing: 2px;
         }
 
-        /* Badge de note globale stylé */
         .global-rating {
             margin-top: 30px;
             background: rgba(255, 193, 7, 0.1);
@@ -88,12 +121,6 @@
             gap: 12px;
             transition: 0.3s;
             backdrop-filter: blur(5px);
-        }
-
-        .global-rating:hover {
-            background: rgba(255, 193, 7, 0.2);
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 193, 7, 0.15);
         }
 
         .rating-number {
@@ -116,7 +143,6 @@
             letter-spacing: 1px;
         }
 
-        /* Guillemet décoratif */
         .review-card::before {
             content: '“';
             position: absolute;
@@ -158,8 +184,7 @@
         <div class="reviews-container" data-aos="fade-up" data-aos-delay="600">
             <div class="reviews-grid">
                 <div class="review-card">
-                    <span class="review-text">"J’ai pu manger un super bon sandwich et des frites maison qui sont délicieuses, et les portions sont parfaites !
-Je recommande !! Le personnel est adorable et la déco est top!"</span>
+                    <span class="review-text">"J’ai pu manger un super bon sandwich et des frites maison qui sont délicieuses, et les portions sont parfaites ! Je recommande !! Le personnel est adorable et la déco est top!"</span>
                     <div class="review-author">
                         <span class="author-name">Anne Sophie M.</span>
                         <span class="stars">⭐⭐⭐⭐⭐</span>
@@ -167,7 +192,7 @@ Je recommande !! Le personnel est adorable et la déco est top!"</span>
                 </div>
 
                 <div class="review-card">
-                    <span class="review-text">"Belle décoration, le restaurant est chaleureux. La cuisine est bonne, beaucoup de choix de quoi satisfaire les papilles de chacun . Le rapport qualité prix est respecté . Le personnel est souriant et accueillant. J’y retournerai les yeux fermés pour goûter les autres plats de la carte . Merci Seven Kitchen."</span>
+                    <span class="review-text">"Belle décoration, le restaurant est chaleureux. La cuisine est bonne, beaucoup de choix de quoi satisfaire les papilles de chacun . Le rapport qualité prix est respecté . Le personnel est souriant et accueillant."</span>
                     <div class="review-author">
                         <span class="author-name">Fatoumata F.</span>
                         <span class="stars">⭐⭐⭐⭐⭐</span>
@@ -192,11 +217,11 @@ Je recommande !! Le personnel est adorable et la déco est top!"</span>
             <span class="close-modal" onclick="closeOrderModal()">&times;</span>
             <h3 style="color:var(--gold-yellow); font-weight:900; letter-spacing:1px;">COMMANDER MAINTENANT</h3>
             <div class="order-grid">
-                <a href="https://www.ubereats.com/fr/store/seven-kitchen/rLdGrp9xWHyTetuz5x5vtg?diningMode=DELIVERY&sc=SEARCH_SUGGESTION" target="_blank" class="order-item">
+                <a href="https://www.ubereats.com" target="_blank" class="order-item">
                     <div class="order-logo"><img src="img/logo-uber.png" alt="Uber"></div>
                     <span>Uber Eats</span>
                 </a>
-                <a href="https://deliveroo.fr/fr/menu/Fontainebleau/fontainebleau/seven-kitchen?day=today&geohash=u09gmhqmd4j0&time=ASAP" target="_blank" class="order-item">
+                <a href="https://deliveroo.fr" target="_blank" class="order-item">
                     <div class="order-logo"><img src="img/logo-deliveroo.png" alt="Deliveroo"></div>
                     <span>Deliveroo</span>
                 </a>
